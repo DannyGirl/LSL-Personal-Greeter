@@ -1,0 +1,44 @@
+default
+{
+    state_entry()
+    {
+        llSetText("Personal Greeter", <1.0, 1.0, 1.0>, 1.0);
+    }
+    touch_start (integer num)
+    {
+        string name = llDetectedName(0);
+        string lang = llGetAgentLanguage(llDetectedKey(0));
+        string hello;
+        
+        if (lang == "en") {
+            hello = "Hello";
+        } else if (lang == "da") {
+            hello = "Hej";
+        } else if (lang == "de" || lang == "nl") {
+            hello = "Hallo";
+        } else if (lang == "es") {
+            hello = "Hola";
+        } else if (lang == "fr") {
+            hello = "Bonjour";
+        } else if (lang == "it") {
+            hello = "Ciao";
+        } else if (lang == "hu") {
+            hello = "Helló";
+        } else if (lang == "pl") {
+            hello = "Cześć";
+        } else if (lang == "pt") {
+            hello = "Olá";
+        } else if (lang == "ru" || lang == "uk") {
+            hello = "Здравствуйте";
+        } else if (lang == "tr") {
+            hello = "Merhaba";
+        } else if (lang == "ja") {
+            hello = "Kon'nichiwa";
+        } else if (lang == "ko") {
+            hello = "Annyeonghaseyo";
+        } else {
+            hello = "Sorry, I don't know your language";
+        }
+        llSay(0, hello + ", " + name + "!");
+    }
+}
